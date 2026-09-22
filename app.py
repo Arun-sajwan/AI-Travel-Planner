@@ -38,7 +38,7 @@ def get_client():
     
 # Prompt passing to AI modal and formate of output generation:---------------------------------------------------------------------------------------------------------------
 
-def generate_ai_plan(client, destination, days, budget, trip_type, interests, start_date=None, end_date=None, home_location=None, model):
+def generate_ai_plan(client, destination, days, budget, trip_type, interests, start_date=None, end_date=None, home_location=None, model="gemini-pro"):
     if client is None:
         raise RuntimeError("GenAI client not configured.")
     
