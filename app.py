@@ -8,7 +8,7 @@ import random
 import re
 from dotenv import load_dotenv
 import streamlit as st
-import google.generativeai as genai
+
 
 
 # modern Google GenAI SDK -------------------------------------------------------------------------------------
@@ -21,8 +21,6 @@ load_dotenv(".env")  #  environment variables from .env if present--------------
 
 #  GEMINI_API_KEY is set in env vars.
 API_KEY = st.secrets["GEMINI_API_KEY"]
-genai.configure(API_KEY=API_KEY)
-model = genai.GenerativeModel('gemini-pro')
 
 def get_client():
     if genai is None:
@@ -38,7 +36,7 @@ def get_client():
     
 # Prompt passing to AI modal and formate of output generation:---------------------------------------------------------------------------------------------------------------
 
-def generate_ai_plan(client, destination, days, budget, trip_type, interests, start_date=None, end_date=None, home_location=None, model="gemini-pro"):
+def generate_ai_plan(client, destination, days, budget, trip_type, interests, start_date=None, end_date=None, home_location=None, model="gemini-2.5-flash"):
     if client is None:
         raise RuntimeError("GenAI client not configured.")
     
