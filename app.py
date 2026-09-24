@@ -246,7 +246,7 @@ Return ONLY valid JSON.
 Use exactly this structure:
 
 {{
-    "destination": "{destination}",
+    "destination": "destination",
     "summary": "Short description of the trip",
 
     "itinerary": [
