@@ -246,7 +246,7 @@ Return ONLY valid JSON.
 Use exactly this structure:
 
 {{
-    "destination": "destination",
+    "destination": "{destination}",
     "summary": "Short description of the trip",
 
     "itinerary": [
@@ -326,10 +326,9 @@ Return only JSON.
         )
 
 
-        st.header(
-            print(f"🌍 {plan['destination']}")
-        )
+        destination_name = plan.get("destination") or destination
 
+        st.header(f"🌍 {destination_name}")
 
         st.write(
             plan["summary"]
