@@ -339,15 +339,15 @@ Return only JSON.
         # ITINERARY
         # --------------------------------------------------
 
-       st.subheader("🗓️ Itinerary")
+         st.subheader("🗓️ Itinerary")
 
-       for day in plan["itinerary"]:
+         for day in plan["itinerary"]:
             with st.expander(
                 f"Day {day['day']} — {day['title']}",
                 expanded=True
             ):
-            for activity in day["activities"]:
-                st.write(f"• {activity}")
+                for activity in day["activities"]:
+                    st.write(f"• {activity}")
 
 
         # --------------------------------------------------
