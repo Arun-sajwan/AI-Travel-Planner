@@ -96,14 +96,22 @@ with travelers:
     )
 
 with budget:
-    budget = st.selectbox(
-        "💰 Budget",
-        [
-            "Budget",
-            "Moderate",
-            "Luxury"
-        ]
-    )
+    col1, col2 = st.columns(2)
+    with col1:
+           budget = st.number_input(
+            "💰 Total Trip Budget",
+            min_value=0,
+            max_value=10000000,
+            value=50000,
+            step=5000,
+            help="Enter your total estimated budget for the trip."
+        )
+    with col2:
+            currency = st.selectbox(
+                "Currency",
+                ["INR", "USD", "EUR", "GBP", "JPY"],
+                index=0
+            )
 
 
 interests = st.multiselect(
@@ -200,8 +208,20 @@ Number of days:
 Number of travelers:
 {travelers}
 
-Budget:
-{budget}
+Total Budget:
+{budget} {currency}
+
+The total estimated trip cost should stay within the user's
+specified budget as closely as reasonably possible.
+
+Use the budget to adjust:
+- accommodation
+- food
+- local transportation
+- activities
+- overall itinerary choices
+
+Do not significantly exceed the specified budget.
 
 Interests:
 {", ".join(interests) if interests else "General sightseeing"}
