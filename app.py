@@ -16,7 +16,18 @@ st.set_page_config(
 st.markdown(
     """
     <style>
+        .block-container {
+            padding-top: 1rem;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
+st.markdown(
+    """
+    <style>
+    
     /* Budget cards */
     div[data-testid="stMetric"] {
         border: 2px solid #d9d9d9;
