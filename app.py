@@ -339,57 +339,15 @@ Return only JSON.
         # ITINERARY
         # --------------------------------------------------
 
-       st.subheader("🗓️ Your Itinerary")
+       st.subheader("🗓️ Itinerary")
 
-        for day in plan["itinerary"]:
-        
-            st.markdown(
-                f"""
-                <div style="
-                    border: 1px solid #e0e0e0;
-                    border-radius: 16px;
-                    padding: 20px;
-                    margin-bottom: 18px;
-                    background-color: white;
-                    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-                ">
-        
-                    <div style="
-                        font-size: 14px;
-                        color: #666;
-                        font-weight: 600;
-                    ">
-                        DAY {day['day']}
-                    </div>
-        
-                    <div style="
-                        font-size: 22px;
-                        font-weight: 700;
-                        margin: 6px 0 14px 0;
-                    ">
-                        {day['title']}
-                    </div>
-        
-                """,
-                unsafe_allow_html=True
-            )
-        
+       for day in plan["itinerary"]:
+            with st.expander(
+                f"Day {day['day']} — {day['title']}",
+                expanded=True
+            ):
             for activity in day["activities"]:
-        
-                st.markdown(
-                    f"""
-                    <div style="
-                        padding: 10px 0;
-                        border-top: 1px solid #eeeeee;
-                        font-size: 16px;
-                    ">
-                        📍 {activity}
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-        
-                st.markdown("</div>", unsafe_allow_html=True)
+                st.write(f"• {activity}")
 
 
         # --------------------------------------------------
