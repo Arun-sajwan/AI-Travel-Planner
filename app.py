@@ -471,7 +471,7 @@ Return only JSON.
             or "temporarily busy" in error_text
             or "service unavailable" in error_text
         ):
-            st.error(
+            st.warning(
                 "⏳ Gemini is temporarily busy. "
                 "Please wait a moment and try again."
             )
